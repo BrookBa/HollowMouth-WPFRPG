@@ -1,0 +1,29 @@
+﻿<Window x:Class="HollowMouth.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HollowMouth"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="680" Width="1024">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="PlayerName"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Player Info"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Menu Buttons"/>
+        <Label Grid.Row="0" Grid.Column="1" Content="Date Information"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="Main Screen"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="Dialogue/Action/Navigation Options"/>
+
+
+    </Grid>
+</Window>

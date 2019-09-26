@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HollowMouthUI", "HollowMouth\HollowMouthUI.csproj", "{387D76CD-A9C9-42CB-BB63-1D717825C8D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{ABD8316F-9442-4F7E-8C07-9E9A89251B70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{387D76CD-A9C9-42CB-BB63-1D717825C8D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387D76CD-A9C9-42CB-BB63-1D717825C8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387D76CD-A9C9-42CB-BB63-1D717825C8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{387D76CD-A9C9-42CB-BB63-1D717825C8D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD8316F-9442-4F7E-8C07-9E9A89251B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD8316F-9442-4F7E-8C07-9E9A89251B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD8316F-9442-4F7E-8C07-9E9A89251B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD8316F-9442-4F7E-8C07-9E9A89251B70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24106F38-F762-47D3-8E81-5471A340726A}
+	EndGlobalSection
+EndGlobal
