@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HollowMouth"
         mc:Ignorable="d"
-        Title="MainWindow" Height="680" Width="1024">
+        Title="Hollowmouth" Height="680" Width="1024">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -21,7 +21,20 @@
         <Label Grid.Row="1" Grid.Column="0" Content="Player Info"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Menu Buttons"/>
         <Label Grid.Row="0" Grid.Column="1" Content="Date Information"/>
-        <Label Grid.Row="1" Grid.Column="1" Content="Main Screen"/>
+        <!--Main Screen-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="{Binding CurrentLocation.Name}"/>
+            <Image Grid.Row="1" Grid.Column="0" Source="{Binding CurrentLocation.ImageName}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="{Binding CurrentLocation.Description}"/>
+
+
+        </Grid>
+        <!--Navigation/Dialogue/Action Controls-->
         <Label Grid.Row="2" Grid.Column="1" Content="Dialogue/Action/Navigation Options"/>
 
 
