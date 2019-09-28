@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:HollowMouth"
         mc:Ignorable="d"
         Title="Hollowmouth" Height="680" Width="1024">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -16,7 +19,6 @@
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
         <Label Grid.Row="0" Grid.Column="0" Content="PlayerName"/>
         <Label Grid.Row="1" Grid.Column="0" Content="Player Info"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Menu Buttons"/>
@@ -31,11 +33,49 @@
             <Label Grid.Row="0" Grid.Column="0" Content="{Binding CurrentLocation.Name}"/>
             <Image Grid.Row="1" Grid.Column="0" Source="{Binding CurrentLocation.ImageName}"/>
             <Label Grid.Row="2" Grid.Column="0" Content="{Binding CurrentLocation.Description}"/>
-
-
         </Grid>
         <!--Navigation/Dialogue/Action Controls-->
-        <Label Grid.Row="2" Grid.Column="1" Content="Dialogue/Action/Navigation Options"/>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="275"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0" Grid.Column="1" 
+                        Height="25" Width="65" Margin="10" 
+                        Click="OnClick_MoveNorth"
+                        Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}"
+                        Content="North"/>
+                <Button Grid.Row="1" Grid.Column="0" 
+                        Height="25" Width="65" Margin="10" 
+                        Click="OnClick_MoveWest"
+                        Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}"
+                        Content="West"/>
+                <Button Grid.Row="1" Grid.Column="2" 
+                        Height="25" Width="65" Margin="10" 
+                        Click="OnClick_MoveEast"
+                        Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}"
+                        Content="East"/>
+                <Button Grid.Row="2" Grid.Column="1" 
+                        Height="25" Width="65" Margin="10" 
+                        Click="OnClick_MoveSouth"
+                        Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}"
+                        Content="South"/>
+            </Grid>
+        </Grid>
 
 
     </Grid>

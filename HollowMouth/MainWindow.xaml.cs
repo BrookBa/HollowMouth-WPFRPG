@@ -32,5 +32,53 @@ namespace HollowMouth
             _gameSession = new GameSession();
             DataContext = _gameSession;
         }
+
+        private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveNorth();
+        }
+
+        private void OnClick_MoveWest(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveWest();
+        }
+
+        private void OnClick_MoveEast(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveEast();
+        }
+
+        private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveSouth();
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            
+            base.OnKeyDown(e);
+            if(e.Key== Key.W)
+            {
+                _gameSession.MoveNorth();
+            }
+            if (e.Key == Key.S)
+            {
+                _gameSession.MoveSouth();
+            }
+            if (e.Key == Key.D)
+            {
+                _gameSession.MoveEast();
+            }
+            if (e.Key == Key.A)
+            {
+                _gameSession.MoveWest();
+            }
+            
+        }
+
+        private void OnClick_BoardBoat(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
