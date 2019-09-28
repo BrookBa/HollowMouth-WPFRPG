@@ -78,7 +78,7 @@ namespace HollowMouth
 
         private void OnClick_BoardBoat(object sender, RoutedEventArgs e)
         {
-
+            _gameSession.EnterDoor();
         }
     }
 }

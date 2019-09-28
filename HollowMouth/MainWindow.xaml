@@ -41,6 +41,12 @@
                 <ColumnDefinition Width="275"/>
             </Grid.ColumnDefinitions>
 
+            <Button Grid.Row="0" Grid.Column="0"
+                    Height="25" Width="85" Margin="10"
+                    Click="OnClick_BoardBoat"
+                    Visibility="{Binding HasDoor, Converter={StaticResource BooleanToVisibility}}"
+                    Content="{Binding CurrentLocation.Door.DoorText}"/>
+
             <Grid Grid.Row="0" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />

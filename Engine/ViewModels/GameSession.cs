@@ -23,11 +23,13 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(HasLocationToWest));
                 OnPropertyChanged(nameof(HasLocationToNorth));
                 OnPropertyChanged(nameof(HasLocationToSouth));
-
+                OnPropertyChanged(nameof(HasDoor));
+                OnPropertyChanged(nameof(CurrentLocation.Door.DoorText));
 
             }
         }
         public Region CurrentRegion { get; set; }
+        public World CurrentWorld { get; set; }
         public bool HasLocationToNorth
         {
             get
@@ -60,11 +62,29 @@ namespace Engine.ViewModels
 
             }
         }
+        public bool HasDoor
+        {
+            get
+            {
+                return CurrentLocation.Door !=null;
+            }
+        }
 
         public GameSession()
         {
+            CurrentWorld = new World();
             CurrentPlayer = new Player();
-            CurrentRegion = RegionFactory.CreateRegion("HollowMouth");
+
+
+            //Region Creation ABSOLUTELY MUST be in this order: World, Hollowmouth, Raven's Hollow, Fall Hollow, Lake, Forest
+            CurrentWorld.AddRegion(RegionFactory.CreateRegion(CONSTANTS.WORLD));
+            CurrentWorld.AddRegion(RegionFactory.CreateRegion(CONSTANTS.HOLLOWMOUTH));
+            CurrentWorld.AddRegion(RegionFactory.CreateRegion(CONSTANTS.RAVENSHOLLOW));
+            CurrentWorld.AddRegion(RegionFactory.CreateRegion(CONSTANTS.FALLHOLLOW));
+            CurrentWorld.AddRegion(RegionFactory.CreateRegion(CONSTANTS.LAKE));
+            CurrentWorld.AddRegion(RegionFactory.CreateRegion(CONSTANTS.FOREST));
+
+            CurrentRegion = CurrentWorld.GetRegion(CONSTANTS.HOLLOWMOUTH);
             CurrentLocation = CurrentRegion.LocationAt(0, 0);
             
         }
@@ -101,9 +121,11 @@ namespace Engine.ViewModels
             }
         }
 
-        public void BoardBoat()
+        public void EnterDoor()
         {
 
+            CurrentRegion = CurrentWorld.GetRegion(CurrentLocation.Door.RegionCode);
+            CurrentLocation = CurrentRegion.LocationAt(CurrentLocation.Door.X, CurrentLocation.Door.Y);
         }
 
     }

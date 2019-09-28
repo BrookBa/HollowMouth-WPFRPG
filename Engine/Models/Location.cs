@@ -13,6 +13,7 @@ namespace Engine.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImageName { get; set; }
+        public RegionDoor Door { get; set; }
 
         public Location(int xCoordinate, int yCoordinate, string name, string description, string imageName)
         {
@@ -21,6 +22,12 @@ namespace Engine.Models
             Name = name;
             Description = description;
             ImageName = imageName;
+            Door = null;
+        }
+
+        public void addDoor(RegionDoor door)
+        {
+            Door = door;
         }
     }
 }
