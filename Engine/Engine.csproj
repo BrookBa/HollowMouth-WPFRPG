@@ -53,6 +53,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Game Data\GameItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Game Data\LocationData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\Images\Locations\3588879907_16dc183c3c_z.jpg" />
     <Resource Include="Resources\Images\Locations\Butcher.jpg" />
     <Resource Include="Resources\Images\Locations\Fishmonger.jpg" />

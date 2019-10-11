@@ -9,46 +9,46 @@ namespace Engine.Factories
 {
     internal static class RegionFactory
     {
-        internal static Region CreateRegion(int region)
+        internal static Region CreateRegion(World.Regions region)
         {
             Region r = new Region();
             switch (region) 
             {
-                case CONSTANTS.WORLD:
+                case World.Regions.World:
                     {
                         r.Name = "World";
                         r.AddLocation(new Location(0, 0,
                             "Hollow Mouth Island", "A deserted island adrift between two towns, isolated by the lake; a strange stone sits at the center--maybe it used to belong to a lighthouse?",
                             "/Engine;component/Resources/Images/Locations/island.jpg"));
-                        r.LocationAt(0, 0).addDoor(new RegionDoor(CONSTANTS.HOLLOWMOUTH, 0, -1, CONSTANTS.DOCKHERE));
+                        r.LocationAt(0, 0).addDoor(new RegionDoor(World.Regions.HollowMouth, 0, -1, CONSTANTS.DOCKHERE));
                         r.AddLocation(new Location(-1, 0,
                             "The Endless Lake", "A glassy-surfaced lake that stretches out seemingly beyond the horizon--perhaps it does indeed have an end, somewhere out there…",
                             "/Engine;component/Resources/Images/Locations/Lake.jpg"));
-                        r.LocationAt(-1, 0).addDoor(new RegionDoor(CONSTANTS.LAKE, 0, 0, CONSTANTS.SAILHERE));
+                        r.LocationAt(-1, 0).addDoor(new RegionDoor(World.Regions.Lake, 0, 0, CONSTANTS.SAILHERE));
                         r.AddLocation(new Location(0, -1,
                             "Fall Hollow", "A bustling, vibrant town that enjoys warm weather and whatever the forest decides to gift them.",
                             "/Engine;component/Resources/Images/Locations/FVDocks.jpg"));
 
-                        r.LocationAt(0, -1).addDoor(new RegionDoor(CONSTANTS.FALLHOLLOW, 0, -2, CONSTANTS.DOCKHERE));
+                        r.LocationAt(0, -1).addDoor(new RegionDoor(World.Regions.FallHollow, 0, -2, CONSTANTS.DOCKHERE));
                         r.AddLocation(new Location(1, 0,
                             "The Abundant Forest", "A virdent forest, teaming with flora and fauna, the trees reach right to the edge of the lake--beyond the first line of trees, however, is obscured in shadow.",
                             "/Engine;component/Resources/Images/Locations/Forest.jpg"));
-                        r.LocationAt(1, 0).addDoor(new RegionDoor(CONSTANTS.FOREST, 0, 0, CONSTANTS.DOCKHERE));
+                        r.LocationAt(1, 0).addDoor(new RegionDoor(World.Regions.Forest, 0, 0, CONSTANTS.DOCKHERE));
                         r.AddLocation(new Location(0, 1,
                             "Raven's Hollow", "An industrial town dressed in austere colors and cool weather--every season can be a rainy season in Raven's Hollow.",
                             "/Engine;component/Resources/Images/Locations/NVDocks.jpg"
                             ));
-                        r.LocationAt(0, 1).addDoor(new RegionDoor(CONSTANTS.RAVENSHOLLOW, 0, -3, CONSTANTS.DOCKHERE));
+                        r.LocationAt(0, 1).addDoor(new RegionDoor(World.Regions.RavensHollow, 0, -3, CONSTANTS.DOCKHERE));
                         return r;
                     }
-                case CONSTANTS.HOLLOWMOUTH:
+                case World.Regions.HollowMouth:
                     {
                         r.Name = "Hollow Mouth Island";
                         r.AddLocation(new Location(0, -1,
                             "The Dock", "An old, worn out dock that's seen better days; you should mind your step, it looks a bit rickety.",
                             "/Engine;component/Resources/Images/Locations/NVDocks.jpg"
                             ));
-                        r.LocationAt(0, -1).addDoor(new RegionDoor(CONSTANTS.WORLD, 0, 0, CONSTANTS.BOARDBOAT));
+                        r.LocationAt(0, -1).addDoor(new RegionDoor(World.Regions.World, 0, 0, CONSTANTS.BOARDBOAT));
 
                         r.AddLocation(new Location(0,0,
                             "The Beacon", "A strange stone with a hole carved near the top, clean through it; you feel drawn to it, somehow…",
@@ -69,7 +69,7 @@ namespace Engine.Factories
                         return r;
                     }
                 
-                case CONSTANTS.RAVENSHOLLOW:
+                case World.Regions.RavensHollow:
                     {
                         r.Name = "Raven's Hollow";
                         r.AddLocation(new Location(0, -3,
@@ -77,17 +77,17 @@ namespace Engine.Factories
                              "/Engine;component/Resources/Images/Locations/island.jpg"
                              ));
 
-                        r.LocationAt(0, -3).addDoor(new RegionDoor(CONSTANTS.WORLD, 0, 1, CONSTANTS.BOARDBOAT));
+                        r.LocationAt(0, -3).addDoor(new RegionDoor(World.Regions.World, 0, 1, CONSTANTS.BOARDBOAT));
                         return r;
                     }
-                case CONSTANTS.FALLHOLLOW:
+                case World.Regions.FallHollow:
                     {
                         r.Name = "Fall Hollow";
                         r.AddLocation(new Location(0, -2,
                             "The Docks", "The sun-bleached planks creak in greeting as you step onto the dock, the lake lapping softly against the pillars beneath you.",
                             "/Engine;component/Resources/Images/Locations/island.jpg"
                             ));
-                        r.LocationAt(0, -2).addDoor(new RegionDoor(CONSTANTS.WORLD, 0, -1, CONSTANTS.BOARDBOAT));
+                        r.LocationAt(0, -2).addDoor(new RegionDoor(World.Regions.World, 0, -1, CONSTANTS.BOARDBOAT));
                         r.AddLocation(new Location(0, -1,
                             "Standing Stones", "Six tall stones stand in a circle, irregular in shape and height, and the path cuts through the center. Maybe it would be best not to linger here…",
                             "/Engine;component/Resources/Images/Locations/island.jpg"
@@ -128,7 +128,7 @@ namespace Engine.Factories
 
                         return r;
                     }
-                case CONSTANTS.LAKE:
+                case World.Regions.Lake:
                     {
                         r.Name = "The Endless Lake";
                         r.AddLocation(new Location(0, 0,
@@ -136,10 +136,10 @@ namespace Engine.Factories
                              "/Engine;component/Resources/Images/Locations/island.jpg"
                              ));
 
-                        r.LocationAt(0, 0).addDoor(new RegionDoor(CONSTANTS.WORLD, -1, 0, CONSTANTS.SAILHERE));
+                        r.LocationAt(0, 0).addDoor(new RegionDoor(World.Regions.World, -1, 0, CONSTANTS.SAILHERE));
                         return r;
                     }
-                case CONSTANTS.FOREST:
+                case World.Regions.Forest:
                     {
                         r.Name = "The Abundant Forest";
                         r.AddLocation(new Location(0, 0,
@@ -147,7 +147,7 @@ namespace Engine.Factories
                              "/Engine;component/Resources/Images/Locations/island.jpg"
                              ));
 
-                        r.LocationAt(0, 0).addDoor(new RegionDoor(CONSTANTS.WORLD, 1,0, CONSTANTS.BOARDBOAT));
+                        r.LocationAt(0, 0).addDoor(new RegionDoor(World.Regions.World, 1,0, CONSTANTS.BOARDBOAT));
                         return r;
                     }
 

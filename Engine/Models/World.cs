@@ -8,15 +8,25 @@ namespace Engine.Models
 {
     public class World
     {
-        private List<Region> _regions = new List<Region>();
-        internal void AddRegion(Region ToAdd)
+        public enum Regions
         {
-            _regions.Add(ToAdd);
+            World,
+            HollowMouth,
+            RavensHollow,
+            FallHollow,
+            Lake,
+            Forest
         }
 
-        public Region GetRegion(int regionKey)
+        private List<Region> _regions = new List<Region>();
+        internal void AddRegion(Regions regionKey, Region ToAdd)
         {
-            return _regions[regionKey];
+            _regions.Insert((int)regionKey, ToAdd);
+        }
+
+        public Region GetRegion(Regions regionKey)
+        {
+            return _regions[(int)regionKey];
         }
         
     }
