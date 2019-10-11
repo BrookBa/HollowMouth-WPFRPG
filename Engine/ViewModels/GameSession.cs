@@ -75,15 +75,13 @@ namespace Engine.ViewModels
             CurrentWorld = new World();
             CurrentPlayer = new Player();
 
-
-            //Region Creation ABSOLUTELY MUST be in this order: World, Hollowmouth, Raven's Hollow, Fall Hollow, Lake, Forest
-            CurrentWorld.AddRegion(World.Regions.World,RegionFactory.CreateRegion(World.Regions.World));
-            CurrentWorld.AddRegion(World.Regions.HollowMouth, RegionFactory.CreateRegion(World.Regions.HollowMouth));
-            CurrentWorld.AddRegion(World.Regions.RavensHollow, RegionFactory.CreateRegion(World.Regions.RavensHollow));
-            CurrentWorld.AddRegion(World.Regions.FallHollow, RegionFactory.CreateRegion(World.Regions.FallHollow));
-            CurrentWorld.AddRegion(World.Regions.Lake, RegionFactory.CreateRegion(World.Regions.Lake));
-            CurrentWorld.AddRegion(World.Regions.Forest, RegionFactory.CreateRegion(World.Regions.Forest));
-
+            World.Regions region;
+            foreach(string regString in Enum.GetNames(typeof(World.Regions)))
+            {
+                
+                Enum.TryParse(regString, out region);
+                CurrentWorld.AddRegion(region, RegionFactory.CreateRegion(region));
+            }
             CurrentRegion = CurrentWorld.GetRegion(World.Regions.HollowMouth);
             CurrentLocation = CurrentRegion.LocationAt(0, 0);
             
